@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+
+import classes from './App.module.css'
+import AddTodoForm from './components/AddTodoForm'
+import TodoList from './components/TodoList'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [notes, setNotes] = useState([])
+
+	const onSubmitHandler = props => {
+		setNotes(prevState => [...prevState, props])
+	}
+
+	const onDeleteHandler = props => {
+		setNotes(prevState => prevState.filter(item => item.id !== props))
+	}
+
+	return (
+		<div className={classes.app}>
+			<p>Dodaj zadanie do wykonania:</p>
+			<AddTodoForm onSubmit={onSubmitHandler} />
+			<TodoList notes={notes} onDelete={onDeleteHandler} />
+		</div>
+	)
 }
 
-export default App;
+export default App

@@ -1,0 +1,33 @@
+form,
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	width: 600px;
+	padding: 10px;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
+form .todo {
+	width: 500px;
+}
+
+form label,
+form input,
+form button {
+	padding: 5px;
+	margin: 10px;
+}
+
+form button {
+	padding: 10px 30px;
+	border: 2px solid black;
+	border-radius: 20px;
+	background-color: #fff;
+	cursor: pointer;
+}
