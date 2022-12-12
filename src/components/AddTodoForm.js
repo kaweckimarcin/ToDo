@@ -5,8 +5,7 @@ const AddTodoForm = props => {
 	const textInputRef = useRef()
 	const dateInputRef = useRef()
 	const [num, setNum] = useState(0)
-
-	
+	const currentDate = new Date().toISOString().slice(0, 10)
 
 	const formSubmitHandler = event => {
 		event.preventDefault()
@@ -28,8 +27,8 @@ const AddTodoForm = props => {
 				<label htmlFor='todo'>Tekst notatki</label>
 				<input type='text' id='todo' ref={textInputRef} className={classes.todo} />
 				<label htmlFor='time'>Termin wykonania</label>
-				<input type='date' id='time' ref={dateInputRef} className={classes.time} />
-				<button >Dodaj notatkę</button>
+				<input type='date' id='time' min={currentDate} ref={dateInputRef} className={classes.time} />
+				<button>Dodaj notatkę</button>
 			</form>
 		</div>
 	)
